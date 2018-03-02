@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -72,7 +73,7 @@ public class LoadSongs extends AppCompatActivity {
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    ArrayList<Songs> songs = new ArrayList<>(findSongs(new File("/mnt/sdcard")));
+                    ArrayList<Songs> songs = new ArrayList<>(findSongs(Environment.getExternalStorageDirectory()));
                     adapter = new SongsAdapter(this, songs);
                     progressLayout.setVisibility(View.GONE);
                     listView.setAdapter(adapter);

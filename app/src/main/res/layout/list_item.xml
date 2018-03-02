@@ -2,62 +2,39 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:descendantFocusability="blocksDescendants">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:clickable="false"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:focusedByDefault="false"
             android:textAlignment="viewStart"
-            android:textColor="#444444"
-            android:textIsSelectable="false"
-            android:textSize="18sp" />
+            android:textColor="@color/title"
+            android:textSize="@dimen/text_18" />
 
         <TextView
             android:id="@+id/duration"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:clickable="false"
-            android:defaultFocusHighlightEnabled="false"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:focusedByDefault="false"
-            android:textAlignment="viewEnd"
-            android:textIsSelectable="false" />
+            android:textAlignment="viewEnd" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:descendantFocusability="blocksDescendants">
+        android:layout_margin="@dimen/small">
 
         <TextView
             android:id="@+id/album"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:clickable="false"
-            android:defaultFocusHighlightEnabled="false"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:focusedByDefault="false"
             android:textAlignment="viewStart" />
 
         <TextView
@@ -65,12 +42,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:clickable="false"
-            android:defaultFocusHighlightEnabled="false"
-            android:descendantFocusability="blocksDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:focusedByDefault="false"
             android:textAlignment="viewEnd"
             android:textIsSelectable="false" />
     </LinearLayout>
