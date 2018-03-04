@@ -217,6 +217,7 @@ public class PlayerActivity extends AppCompatActivity {
             playButton.setImageResource(R.drawable.ic_play_arrow_light_green_a700_36dp);
             seekBar.setProgress(0);
             audioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+            remainingTimeTextView.setText(R.string.zero);
         }
     }
 
