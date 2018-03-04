@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.shohayeb.musicplayer.LoadSongs">
+    tools:context="com.shohayeb.musicplayer.LoadSongsActivity">
 
     <LinearLayout
-        android:id="@+id/progress"
+        android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -27,7 +27,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
 import java.util.List;
 
 /**
@@ -27,14 +28,14 @@ public class SongsAdapter extends ArrayAdapter<Songs> {
         if (convertView == null)
             convertView = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
         Songs currentSong = getItem(position);
-        TextView title = convertView.findViewById(R.id.title);
-        TextView duration = convertView.findViewById(R.id.duration);
-        TextView artist = convertView.findViewById(R.id.artist);
-        TextView album = convertView.findViewById(R.id.album);
-        title.setText(currentSong.getTitle());
-        duration.setText(getTimeString(currentSong.getDuration()));
-        artist.setText(currentSong.getArtist());
-        album.setText(currentSong.getAlbum());
+        TextView titleTextView = convertView.findViewById(R.id.title_text_view);
+        TextView durationTextView = convertView.findViewById(R.id.duration_text_view);
+        TextView artistTextView = convertView.findViewById(R.id.artist_text_view);
+        TextView albumTextView = convertView.findViewById(R.id.album_text_view);
+        titleTextView.setText(currentSong.getTitle());
+        durationTextView.setText(getTimeString(currentSong.getDuration()));
+        artistTextView.setText(currentSong.getArtist());
+        albumTextView.setText(currentSong.getAlbum());
         return convertView;
     }
 

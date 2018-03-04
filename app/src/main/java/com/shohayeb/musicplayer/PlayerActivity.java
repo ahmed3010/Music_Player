@@ -29,7 +29,7 @@ public class PlayerActivity extends AppCompatActivity {
     private SeekBar seekBar;
     private ArrayList<Songs> list;
     private MediaPlayer player;
-    private ImageView imageView;
+    private ImageView songImage;
     private TextView remainingTimeTextView;
     private TextView songDurationTextView;
     private AudioManager audioManager;
@@ -53,20 +53,20 @@ public class PlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
-        imageView = findViewById(R.id.imageView);
-        playButton = findViewById(R.id.play);
-        stopButton = findViewById(R.id.stop);
-        nextButton = findViewById(R.id.next);
-        previousButton = findViewById(R.id.previous);
+        songImage = findViewById(R.id.song_image);
+        playButton = findViewById(R.id.play_button);
+        stopButton = findViewById(R.id.stop_button);
+        nextButton = findViewById(R.id.next_button);
+        previousButton = findViewById(R.id.previous_button);
         seekBar = findViewById(R.id.seekBar);
         remainingTimeTextView = findViewById(R.id.remaining_time);
         songDurationTextView = findViewById(R.id.song_duration);
         onComplete = new MusicCompletionListener();
         animBlink = AnimationUtils.loadAnimation(this, R.anim.blink);
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
-        if (getIntent().getExtras().get(LoadSongs.SONGS_LIST) != null) {
-            list = (ArrayList<Songs>) getIntent().getExtras().get(LoadSongs.SONGS_LIST);
-            index = getIntent().getIntExtra(LoadSongs.INDEX, 0);
+        if (getIntent().getExtras().get(LoadSongsActivity.SONGS_LIST) != null) {
+            list = (ArrayList<Songs>) getIntent().getExtras().get(LoadSongsActivity.SONGS_LIST);
+            index = getIntent().getIntExtra(LoadSongsActivity.INDEX, 0);
         }
         if (list != null) {
             if (savedInstanceState != null)
@@ -183,7 +183,7 @@ public class PlayerActivity extends AppCompatActivity {
         player.start();
         byte[] image = list.get(index).getBitmap();
         if (image != null) {
-            imageView.setImageBitmap(BitmapFactory.decodeByteArray(image, 0, image.length));
+            songImage.setImageBitmap(BitmapFactory.decodeByteArray(image, 0, image.length));
         }
         player.setOnCompletionListener(onComplete);
         playButton.setImageResource(R.drawable.ic_pause_light_green_a700_36dp);

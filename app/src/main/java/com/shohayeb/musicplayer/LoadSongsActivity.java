@@ -18,7 +18,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoadSongs extends AppCompatActivity {
+public class LoadSongsActivity extends AppCompatActivity {
     public static final String SONGS_LIST = "songsList";
     public static final String INDEX = "index";
     private ListView listView;
@@ -29,11 +29,11 @@ public class LoadSongs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_songs);
-        progressLayout=findViewById(R.id.progress);
+        progressLayout = findViewById(R.id.progress_bar);
         progressLayout.setVisibility(View.VISIBLE);
-        ActivityCompat.requestPermissions(LoadSongs.this,
+        ActivityCompat.requestPermissions(LoadSongsActivity.this,
                 new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-        listView = findViewById(R.id.list);
+        listView = findViewById(R.id.list_view);
     }
 
     private List<Songs> findSongs(File root) {
@@ -78,7 +78,7 @@ public class LoadSongs extends AppCompatActivity {
                     progressLayout.setVisibility(View.GONE);
                     listView.setAdapter(adapter);
                     listView.setOnItemClickListener((parent, view, position, id) -> {
-                        Intent intent = new Intent(LoadSongs.this, PlayerActivity.class);
+                        Intent intent = new Intent(LoadSongsActivity.this, PlayerActivity.class);
                         intent.putExtra(SONGS_LIST, songs);
                         intent.putExtra(INDEX, position);
                     startActivity(intent);
@@ -86,7 +86,7 @@ public class LoadSongs extends AppCompatActivity {
                     });
                 } else {
                     progressLayout.setVisibility(View.GONE);
-                    Toast.makeText(LoadSongs.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoadSongsActivity.this, "Permission denied to read your External storage", Toast.LENGTH_SHORT).show();
                 }
             }
         }
